@@ -1,6 +1,6 @@
 # NgPerspective
 
-Perspective demo with angular.
+[Perspective](https://github.com/finos/perspective) demo with angular.
 
 ![perspective](docs\perspective.gif)
 
