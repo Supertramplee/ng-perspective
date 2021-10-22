@@ -21,8 +21,47 @@
     35 } & React.DetailedHTMLProps<ReactPerspectiveViewerAttributes<PerspectiveViewerElement>, PerspectiveViewerElement>;
            ~~~~~
     
-     ```
+    ```
 
     fix:  `npm i --save-dev @types/react`
 
-3.  
+3.  ```bash
+    ✔ Browser application bundle generation complete.
+    ✔ Copying assets complete.
+    ⠋ Generating index html...1 rules skipped due to selector errors:
+      400&display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono@200;400&display=swap);@import url(https://unpkg.com/monaco-editor/esm/vs/base/browser/ui/codicons/codicon/codicon.css);.perspective-viewer-material -> Unmatched selector: &display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono@200;400&display=swap);@import url(https://unpkg.com/monaco-editor/esm/vs/base/browser/ui/codicons/codicon/codicon.css);.perspective-viewer-material
+    ✔ Index html generation complete.
+    ```
+
+    error after production build... and will cause style error...
+
+    ![image-20211021143137843](docs\image-20211021143137843.png)
+
+    ![image-20211021143017012](docs\image-20211021143017012.png)
+
+  4.  Errors below if add `"@finos/perspective-webpack-plugin": "^1.0.0"`, seems still related to monaco-editor.
+
+      ```bash
+     ...............................
+     ./node_modules/monaco-editor/esm/vs/platform/actions/browser/menuEntryActionViewItem.css - Error: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+     SyntaxError
+     
+     (1:1) C:\Project\Perspective\ng-perspective-webpack\node_modules\monaco-editor\esm\vs\platform\actions\browser\menuEntryActionViewItem.css Unknown word        
+     
+     > 1 | exports = module.exports = require("../../../../../../@finos/perspective-webpack-plugin/node_modules/css-loader/lib/css-base.js")(false);
+         | ^
+       2 | // imports
+       3 | 
+     
+     
+     ./node_modules/monaco-editor/esm/vs/platform/contextview/browser/contextMenuHandler.css - Error: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+     SyntaxError
+     
+     (1:1) C:\Project\Perspective\ng-perspective-webpack\node_modules\monaco-editor\esm\vs\platform\contextview\browser\contextMenuHandler.css Unknown word
+     
+     > 1 | exports = module.exports = require("../../../../../../@finos/perspective-webpack-plugin/node_modules/css-loader/lib/css-base.js")(false);
+         | ^
+       2 | // imports
+      ```
+
+     

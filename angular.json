@@ -20,6 +20,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@finos/perspective-workspace",
+              "@finos/perspective-viewer-d3fc",
+              "@finos/perspective-viewer-datagrid",
+              "@finos/perspective-viewer",
+              "@finos/perspective"
+            ],
             "outputPath": "dist/ng-perspective",
             "index": "src/index.html",
             "main": "src/main.ts",
