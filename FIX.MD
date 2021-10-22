@@ -1,17 +1,16 @@
-1.  
-
+1.  Error:
     ```bash
     Error: node_modules/@finos/perspective/index.d.ts:2:25 - error TS7016: Could not find a declaration file for module 'ws'. 'C:/Project/Perspective/ng-perspective/node_modules/ws/index.js' implicitly has an 'any' type.
       Try `npm i --save-dev @types/ws` if it exists or add a new declaration (.d.ts) file containing `declare module 'ws';`
     
     2     import * as ws from "ws";
                               ~~~~
+    
     ```
 
     fix:   `npm i --save-dev @types/ws`
 
-2.   
-
+2.   Error:
      ```bash
      Error: node_modules/@finos/perspective-viewer/dist/esm/extensions.d.ts:10:23 - error TS2688: Cannot find type definition file for 'react'.
      
@@ -29,12 +28,12 @@
 
      fix:  `npm i --save-dev @types/react`
 
-3.   then seems it works well, but there's some error with workspace:
+3.  then seems it works well, but there's some error with workspace:
 
-    <img src="docs\Snipaste_2021-10-21_14-11-23.png" alt="Snipaste_2021-10-21_14-11-23" style="zoom:60%;" />
+    ![Snipaste_2021-10-21_14-11-23](docs\Snipaste_2021-10-21_14-11-23.png)
+
 
 4.  try to have a production build `ng build` , show some build error:
-
     ```bash
     ✔ Browser application bundle generation complete.
     ✔ Copying assets complete.
@@ -49,9 +48,8 @@
 
     ![image-20211021143017012](docs\image-20211021143017012.png)
 
-  5.  then, try to add `"@finos/perspective-webpack-plugin": "^1.0.0"`  Errors below, related to monaco-editor.
-
-      ```bash
+  5. then, try to add `"@finos/perspective-webpack-plugin": "^1.0.0"`  Errors below, related to monaco-editor.
+     ```bash
      ...............................
      ./node_modules/monaco-editor/esm/vs/platform/actions/browser/menuEntryActionViewItem.css - Error: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
      SyntaxError
@@ -72,10 +70,9 @@
      > 1 | exports = module.exports = require("../../../../../../@finos/perspective-webpack-plugin/node_modules/css-loader/lib/css-base.js")(false);
          | ^
        2 | // imports
-      ```
+     ```
 
-6.  try with your  [webpack demo](https://github.com/finos/perspective/tree/master/examples/webpack), after i fix some package missing/upgrade,  similar issue related with monaco-editor.. 
-
+6.  try with your  [webpack demo](https://github.com/finos/perspective/tree/master/examples/webpack), after i fix some package missing/upgrade,  similar issue related with monaco-editor..
     ```javascript
         "dependencies": {
             "@finos/perspective": "^1.0.0",
